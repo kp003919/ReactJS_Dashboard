@@ -1,0 +1,6 @@
+{
+  "beacons": [
+    { "mac": "AA:BB:CC:DD:EE:01", "rssi": -60, "x": 1, "y": 2 },
+    { "mac": "AA:BB:CC:DD:EE:02", "rssi": -72, "x": 4, "y": 3 }
+  ]
+}

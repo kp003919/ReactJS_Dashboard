@@ -1,0 +1,27 @@
+.csv-panel {
+  background: #ffffff;
+  padding: 14px;
+  border-radius: 10px;
+  border: 1px solid #e0e0e0;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+.csv-panel h3 {
+  margin-top: 0;
+  color: #333;
+}
+
+.csv-button {
+  padding: 10px 16px;
+  background: #00897b;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.csv-button:hover {
+  background: #00695c;
+}

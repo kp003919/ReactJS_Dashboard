@@ -1,0 +1,33 @@
+.status-card {
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  border: 1px solid;
+}
+
+.status-green {
+  background: #d4edda;
+  border-color: #155724;
+}
+
+.status-yellow {
+  background: #fff3cd;
+  border-color: #856404;
+}
+
+.status-red {
+  background: #f8d7da;
+  border-color: #721c24;
+}
+
+.status-card h4 {
+  margin: 0;
+}
+
+.status-card p {
+  margin: 5px 0 0 0;
+}
+.status-timestamp {
+  font-size: 0.85em;
+  color: #666;
+}

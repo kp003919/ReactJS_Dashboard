@@ -1,0 +1,133 @@
+/* GLOBAL DARK MODE */
+body {
+  background: #0d1117;
+  color: #e6edf3;
+  font-family: system-ui, sans-serif;
+}
+
+/* CONTAINER */
+.iot-container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 30px;
+}
+
+/* TITLE */
+.iot-title {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 600;
+  background: linear-gradient(135deg, #00c896, #00a3a3);
+  -webkit-background-clip: text;
+  color: transparent;
+  margin-bottom: 30px;
+}
+
+/* GRID */
+.iot-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 20px;
+}
+
+/* CARDS */
+.iot-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(8px);
+  transition: 0.2s ease;
+}
+
+.iot-card:hover {
+  box-shadow: 0 0 20px rgba(0, 200, 150, 0.25);
+}
+
+/* STATUS BADGES */
+.status-badge {
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  color: white;
+  display: inline-block;
+  margin-top: 10px;
+}
+
+.green {
+  background: #22c55e;
+}
+
+.orange {
+  background: #f59e0b;
+}
+
+.red {
+  background: #ef4444;
+}
+
+/* GAUGE */
+.gauge-wrapper {
+  text-align: center;
+}
+
+.gauge {
+  width: 160px;
+  height: 80px;
+  background: #111;
+  border-radius: 160px 160px 0 0;
+  position: relative;
+  overflow: hidden;
+  margin: auto;
+}
+
+.gauge-fill {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, #00c896, #00a3a3);
+  transform-origin: center bottom;
+  transition: transform 0.8s ease-out;
+}
+
+.gauge-cover {
+  width: 120px;
+  height: 60px;
+  background: #0d1117;
+  border-radius: 120px 120px 0 0;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  padding-top: 10px;
+}
+
+.gauge-value {
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
+.gauge-icon {
+  font-size: 1.2rem;
+  margin-right: 6px;
+}
+
+.gauge-label {
+  margin-top: 8px;
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+/* ERROR */
+.iot-error {
+  text-align: center;
+  color: #ef4444;
+  font-weight: bold;
+}
+
+/* CHART CARD */
+.chart-card {
+  margin-top: 25px;
+}

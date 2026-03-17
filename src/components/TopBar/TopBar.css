@@ -1,0 +1,52 @@
+.topbar {
+  height: 60px;
+  background: #ffffff;
+  border-bottom: 1px solid #e5e5e5;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  font-family: "Inter", sans-serif;
+}
+
+.topbar-left {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.logo {
+  font-size: 20px;
+  font-weight: 700;
+  color: #0077cc;
+}
+
+.title {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.env-select,
+.time-select {
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  background: #f8f8f8;
+  cursor: pointer;
+}
+
+.topbar-stats {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.stat {
+  font-size: 14px;
+  color: #333;
+}
+
+.topbar-user .user-icon {
+  font-size: 20px;
+  cursor: pointer;
+}

@@ -1,0 +1,59 @@
+/* Dashboard Layout */
+.dashboard-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+/* Section Titles */
+.section-title {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 12px;
+  color: #333;
+}
+
+/* Chart Container */
+.chart-container {
+  background: #ffffff;
+  padding: 16px;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  margin-bottom: 20px;
+}
+
+/* Diagnostics Panel */
+.diagnostics-panel {
+  background: #f7f9fc;
+  padding: 16px;
+  border-radius: 10px;
+  border: 1px solid #dce3f0;
+  margin-bottom: 20px;
+}
+
+.diagnostics-panel h3 {
+  margin-top: 0;
+  color: #2a4d8f;
+}
+
+.diagnostics-item {
+  margin: 6px 0;
+  font-size: 14px;
+  color: #444;
+}
+
+/* Button Styles */
+.button {
+  padding: 10px 16px;
+  background: #2a4d8f;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.button:hover {
+  background: #1f3a6b;
+}
