@@ -44,6 +44,17 @@ function haversine(lat1, lon1, lat2, lon2) {
   return R * c;
 }
 
+/**
+ * GPS Page Component
+ * This component displays real-time GPS data and tracking information for the IoT device.    
+ * It receives the latest GPS data as a prop (latestData) and maintains a history of GPS points to display on the map and calculate trends. The component calculates additional information such as bearing and total distance traveled based on the GPS history. It also provides options to switch between different map providers (Leaflet and Google Maps) and toggle auto-follow mode for the map view. The UI includes a card displaying the current GPS information, a speed trend chart, and an interactive map showing the device's location and movement history. The component is designed to be responsive and visually appealing, making it easy for users to monitor their device's GPS data effectively. 
+ *  
+ * @param {*} param0  is a last updated data to be displayed on the GPS page. It is expected to be an object containing GPS information such as latitude, longitude, speed, accuracy, and altitude. This data is typically received from a WebSocket connection or an API call that provides real-time updates from the GPS module connected to the IoT device. The component uses this latestData prop to update the display of GPS information and to maintain a history of GPS points for tracking and visualization purposes. The component also calculates additional metrics such as bearing and total distance traveled based on the history of GPS data. 
+ * @returns 
+ */ 
+ 
+
+ 
 export default function GPSPage({ latestData }) {
   const [history, setHistory] = useState([]);
   const [mapMode, setMapMode] = useState("leaflet");

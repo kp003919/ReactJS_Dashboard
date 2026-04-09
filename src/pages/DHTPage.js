@@ -62,6 +62,12 @@ const getAlerts = (d) => {
   return alerts;
 };
 
+/**
+ * DHT Sensor Dashboard Component 
+ * This component displays real-time temperature and humidity data from DHT sensors connected to an ESP32 device. It uses WebSocket to receive live updates and provides a dashboard with gauges, historical charts, and alerts based on sensor readings. The dashboard supports multiple sensors, allowing users to select which sensor's data to view. It also includes a dark mode toggle for improved readability in different lighting conditions. The component is designed to be responsive and visually appealing, making it easy for users to monitor their DHT sensors effectively. 
+ *  
+ * @returns 
+ */
 export default function DHTPage() {
   const { sensors, history, wsState } = useContext(DHTContext);
   const [dark, setDark] = useState(true);

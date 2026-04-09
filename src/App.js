@@ -11,6 +11,12 @@ import EmbeddedProtocols from "./pages/EmbeddedProtocols";
 
 export const DHTContext = createContext(null);
 
+/**
+ * Main App Component
+ * This component serves as the root of the application, managing global state and routing.
+  * It establishes a WebSocket connection to receive real-time data from DHT sensors connected to an ESP32 device. The component maintains state for the latest sensor readings, historical data, and WebSocket connection status. It uses React Router to define routes for different pages of the application, including the DHT sensor dashboard, GPS page, RTLS page, beacons page, control panel, and embedded protocols page. The DHTContext is used to provide sensor data and connection status to child components that need access to this information. The component also implements a reconnection strategy for the WebSocket connection using exponential backoff to ensure reliable data streaming from the ESP32 device. Overall, this component serves as the central hub for managing state and routing in the IoT dashboard application.  
+ * @returns 
+ */
 export default function App() {
   const [sensors, setSensors] = useState({});      // { id: latestDht }
   const [history, setHistory] = useState({});      // { id: [samples] }

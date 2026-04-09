@@ -17,6 +17,12 @@ import BeaconHistoryDrawer from "../components/BeaconHistoryDrawer";
 import { useAwsCredentials } from "../components/useAwsCredentials";
 import { useRtlsMqtt } from "../components/useRtlsMqtt";
 
+
+/**
+ * RTLS Page Component
+ * This component provides a user interface for monitoring and controlling the Real-Time Location System (RTLS) of the IoT device. It displays real-time information about beacon positions, anchor health, and zone occupancy. The UI includes a floor map showing beacon locations, summary cards for key metrics, and interactive elements for managing alerts and historical data.  
+ * @returns  
+ */
 export default function RTLSPage() {
   const creds = useAwsCredentials(
     "eu-west-2:62e6c7b7-bd74-43bc-8b55-007a8a972d22"

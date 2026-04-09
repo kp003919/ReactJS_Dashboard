@@ -1,5 +1,12 @@
 import React, { useEffect, useState } from "react";
 
+/**
+ * Embedded Protocols Control Page Component
+ * This component provides a user interface for controlling and monitoring embedded protocols (I2C, SPI, UART, Modbus) connected to an ESP32 device. It allows users to send commands and view real-time data from each protocol.
+  * The component establishes a WebSocket connection to receive live updates from the ESP32, displaying the latest data for each protocol along with timestamps. Users can select a protocol and send specific commands to the device, which are then forwarded to the backend server (Node‑RED) for processing. The UI is designed with a responsive grid layout and includes a dark mode toggle for improved readability. Error handling is implemented to provide feedback on command sending failures. This component serves as a central dashboard for managing and monitoring the embedded protocols of the IoT device, making it easier for users to interact with and understand the data being transmitted.  
+  * 
+ * @returns 
+ */
 export default function ControlPage() {
   const [i2c, setI2c] = useState(null);
   const [spi, setSpi] = useState(null);
@@ -7,6 +14,10 @@ export default function ControlPage() {
   const [modbus, setModbus] = useState(null);
   const [status, setStatus] = useState("Connecting…");
   const [dark, setDark] = useState(true);
+
+  const [selectedProtocol, setSelectedProtocol] = useState("uart");
+  const [command, setCommand] = useState("");
+  const [sending, setSending] = useState(false);
 
   const [timestamps, setTimestamps] = useState({
     i2c: null,
@@ -27,11 +38,14 @@ export default function ControlPage() {
     return `${hr}h ago`;
   };
 
+  // ---------------------------
+  // WebSocket Connection
+  // ---------------------------
   useEffect(() => {
     let socket;
 
     const connect = () => {
-      socket = new WebSocket("ws://192.168.0.21:1880/ws/data");
+      socket = new WebSocket("ws://192.168.0.92:1880/ws/data");
 
       socket.onopen = () => setStatus("Connected");
 
@@ -84,6 +98,33 @@ export default function ControlPage() {
     return () => socket && socket.close();
   }, []);
 
+  // ---------------------------
+  // Send Command to Node‑RED
+  // ---------------------------
+  async function sendCommand() {
+    if (!command.trim()) return;
+
+    setSending(true);
+
+    try {
+      await fetch("http://192.168.0.92:1880/sendcmd", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          protocol: selectedProtocol,
+          command: command.trim(),
+        }),
+      });
+    } catch (err) {
+      console.error("Failed to send command:", err);
+    }
+
+    setSending(false);
+  }
+
+  // ---------------------------
+  // Theme Colors
+  // ---------------------------
   const bg = dark ? "#020617" : "#f5f5f5";
   const fg = dark ? "#e5e7eb" : "#111827";
   const cardBg = dark ? "#0b1120" : "#ffffff";
@@ -122,6 +163,9 @@ export default function ControlPage() {
     </div>
   );
 
+  // ---------------------------
+  // Render
+  // ---------------------------
   return (
     <div
       style={{
@@ -174,6 +218,70 @@ export default function ControlPage() {
         >
           {dark ? "Light mode" : "Dark mode"}
         </button>
+      </div>
+
+      {/* Command Sender */}
+      <div
+        style={{
+          background: cardBg,
+          borderRadius: 16,
+          padding: 20,
+          border: `1px solid ${border}`,
+          marginBottom: 20,
+        }}
+      >
+        <h3 style={{ marginTop: 0, marginBottom: 12 }}>⚙️ Send Protocol Command</h3>
+
+        <div style={{ display: "flex", gap: 12, alignItems: "center" }}>
+          {/* Protocol Selector */}
+          <select
+            value={selectedProtocol}
+            onChange={(e) => setSelectedProtocol(e.target.value)}
+            style={{
+              padding: "8px 12px",
+              borderRadius: 8,
+              background: cardBg,
+              color: fg,
+              border: `1px solid ${border}`,
+            }}
+          >
+            <option value="uart">UART</option>
+            <option value="spi">SPI</option>
+            <option value="i2c">I2C</option>
+          </select>
+
+          {/* Command Input */}
+          <input
+            type="text"
+            placeholder="Enter command (e.g., AT+STATUS)"
+            value={command}
+            onChange={(e) => setCommand(e.target.value)}
+            style={{
+              flex: 1,
+              padding: "8px 12px",
+              borderRadius: 8,
+              background: cardBg,
+              color: fg,
+              border: `1px solid ${border}`,
+            }}
+          />
+
+          {/* Send Button */}
+          <button
+            onClick={sendCommand}
+            disabled={sending}
+            style={{
+              padding: "8px 16px",
+              borderRadius: 8,
+              background: sending ? "#6b7280" : "#2563eb",
+              color: "white",
+              border: "none",
+              cursor: "pointer",
+            }}
+          >
+            {sending ? "Sending…" : "Send"}
+          </button>
+        </div>
       </div>
 
       {/* Grid layout */}
