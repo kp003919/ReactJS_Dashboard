@@ -12,10 +12,8 @@ export default function Navbar() {
         <li><Link to="/">DHT Sensor</Link></li>              
         <li><Link to="/rtls">RTLS</Link></li>  
         <Link to="/beacons">Beacons</Link>
-        <Link to="/control-panel">Control Panel</Link>
-        <Link to="/embedded-protocols">Embedded Protocols</Link>
-
-
+        <Link to="/control-panel">Control Panel</Link>        
+        <Link to="/embedded-protocols_ts">Embedded Protocols_TS</Link>
       </ul>
     </nav>
   ); 

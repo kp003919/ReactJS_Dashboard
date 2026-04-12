@@ -111,8 +111,8 @@ export default function App() {
           <Route path="/gps" element={<GPSPage />} />
           <Route path="/rtls" element={<RTLSPage />} />
           <Route path="/beacons" element={<BeaconsPage />} />
-          <Route path="/control-panel" element={<ControlPanel />} />
-          <Route path="/embedded-protocols" element={<EmbeddedProtocols />} />
+          <Route path="/control-panel" element={<ControlPanel />} />         
+          <Route path="/embedded-protocols_TS" element={<EmbeddedProtocols />} />
         </Routes>
       </BrowserRouter>
     </DHTContext.Provider>
