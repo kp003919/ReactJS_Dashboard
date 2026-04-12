@@ -112,7 +112,7 @@ export default function App() {
           <Route path="/rtls" element={<RTLSPage />} />
           <Route path="/beacons" element={<BeaconsPage />} />
           <Route path="/control-panel" element={<ControlPanel />} />         
-          <Route path="/embedded-protocols_TS" element={<EmbeddedProtocols />} />
+          <Route path="/embedded-protocols_ts" element={<EmbeddedProtocols />} />
         </Routes>
       </BrowserRouter>
     </DHTContext.Provider>
